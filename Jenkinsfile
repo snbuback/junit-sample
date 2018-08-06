@@ -1,5 +1,5 @@
 pipeline {
-  agent { }
+  agent { any }
   stages {
     stage('junit5-jupiter-starter-gradle') {
       tools {
