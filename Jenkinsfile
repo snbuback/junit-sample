@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'hi-speed' }
+  agent { }
   stages {
     stage('junit5-jupiter-starter-gradle') {
       tools {
