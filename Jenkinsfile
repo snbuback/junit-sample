@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('junit5-jupiter-starter-gradle') {
       tools {
-        jdk 'Oracle JDK 8 (latest)'
+        jdk 'JDK 9'
       }
       steps {
         sh 'cd junit5-jupiter-starter-gradle && ./gradlew --no-daemon clean build'
