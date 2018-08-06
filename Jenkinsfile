@@ -11,7 +11,7 @@ pipeline {
       post {
         always {
           junit 'build/test-results/test/*.xml'
-          jacoco()
+          jacoco classPattern: '**/classes/java/main'
         }
       }
     }
