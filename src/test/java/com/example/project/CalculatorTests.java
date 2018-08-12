@@ -11,6 +11,7 @@
 package com.example.project;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,12 +32,22 @@ class CalculatorTests {
 			"0,    1,   1",
 			"1,    2,   3",
 			"49,  51, 100",
-			"1,  100, 101",
-			"-4, 2, -2"
+			"1,  100, 101"
 	})
 	void add(int first, int second, int expectedResult) {
 		Calculator calculator = new Calculator();
 		assertEquals(expectedResult, calculator.add(first, second),
 				() -> first + " + " + second + " should equal " + expectedResult);
+	}
+
+	@Test()
+	void negativeNumbers() {
+		Calculator calculator = new Calculator();
+		try {
+			calculator.add(-4, 2);
+			fail("No exception");
+		} catch (IllegalArgumentException e) {
+			assertEquals("< 0 result", e.getMessage());
+		}
 	}
 }
