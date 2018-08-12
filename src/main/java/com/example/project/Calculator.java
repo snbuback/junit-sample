@@ -13,7 +13,11 @@ package com.example.project;
 public class Calculator {
 
 	public int add(int a, int b) {
-		return a + b;
+		int result = a + b;
+		if (result < 0) {
+			throw new IllegalArgumentException("< 0 result");
+		}
+		return result;
 	}
 
 }
